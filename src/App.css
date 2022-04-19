@@ -15,3 +15,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul {
+  list-style: none;
+  padding: 0px 5px;
+}
+
+li {
+  word-wrap: normal;
+  background-color: rgb(219, 246, 246);
+}
+
+h2 {
+  color: rgb(70, 70, 242);
+}
+
+.Header {
+  grid-area: top;
+  border: 2px solid rgb(242, 67, 67);
+  background-color: rgb(242, 67, 67);
+  padding: 10px;
+  margin: 0.65em;
+}
+
+.listItems {
+  border: 1px solid black;
+  padding: 0.5em 1.5em;
+  margin: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows: max-content auto;
+    grid-template-areas:
+      'top top'
+      'sidebar main';
+  }
+  .articles {
+    grid-area: main;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .listItems {
+    border: 1px solid black;
+    padding: 0.5em 1.5em;
+    margin: 1em;
+    width: 25%;
+  }
+}
