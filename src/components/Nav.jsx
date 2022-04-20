@@ -19,7 +19,7 @@ const Nav = () => {
       {topics.map(({ slug }) => {
         const label = slug[0].toUpperCase() + slug.substring(1);
         return (
-          <Link className="links" key={slug} to={`/articles/${slug}`}>
+          <Link className="links" key={slug} to={`/${slug}`}>
             {label}
           </Link>
         );

@@ -38,6 +38,11 @@ h2 {
   margin: 0.65em;
 }
 
+.individual-article {
+  padding: 0em 1em;
+  margin: 0em 2em;
+}
+
 .listItems {
   border: 1px solid black;
   padding: 0.5em 1.5em;
@@ -69,6 +74,12 @@ h2 {
     justify-content: center;
   }
 
+  .individual-article {
+    grid-area: main;
+    max-width: 850px;
+    align-self: center;
+  }
+
   .listItems {
     border: 1px solid black;
     padding: 0.5em 1.5em;
@@ -80,5 +91,11 @@ h2 {
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
+  }
+
+  p {
+    padding: 0em 4em;
+
+    text-align: center;
   }
 }
