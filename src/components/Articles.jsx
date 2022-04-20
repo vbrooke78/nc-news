@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getArticles } from '../utils/api';
+import { ArticleCard } from './ArticleCard';
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -18,22 +19,15 @@ const Articles = () => {
       .catch((err) => {
         setErr('Topic not found ☹️');
       });
-  }, [topic]);
+  }, [topic, setArticles]);
 
   if (err) return <p>{err}</p>;
   if (isLoading) return <p>Loading...</p>;
+
   return (
     <ul className="articles">
       {articles.map((article) => {
-        return (
-          <li className="listItems" key={article.article_id}>
-            <h2>{article.title}</h2>
-            <p>Author: {article.author}</p>
-            <p>Topic: {article.topic}</p>
-            <p>Votes: {article.votes}</p>
-            <p>Comments: {article.comment_count}</p>
-          </li>
-        );
+        return <ArticleCard key={article.article_id} article={article} />;
       })}
     </ul>
   );
