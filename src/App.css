@@ -23,17 +23,17 @@ ul {
 
 li {
   word-wrap: normal;
-  background-color: rgb(219, 246, 246);
+  background-color: #c6eddf;
 }
 
 h2 {
-  color: rgb(70, 70, 242);
+  color: #0d0d0d;
 }
 
 .Header {
   grid-area: top;
-  border: 2px solid rgb(242, 67, 67);
-  background-color: rgb(242, 67, 67);
+  border: 2px solid #65a68e;
+  background-color: #65a68e;
   padding: 10px;
   margin: 0.65em;
 }
@@ -42,6 +42,14 @@ h2 {
   border: 1px solid black;
   padding: 0.5em 1.5em;
   margin: 1em;
+}
+
+.links {
+  margin: 1em;
+}
+
+.navBar {
+  background-color: #bebabf;
 }
 
 @media only screen and (min-width: 768px) {
@@ -66,5 +74,11 @@ h2 {
     padding: 0.5em 1.5em;
     margin: 1em;
     width: 25%;
+  }
+
+  .navBar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
   }
 }
