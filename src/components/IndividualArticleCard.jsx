@@ -1,11 +1,20 @@
 import { useState } from 'react';
+import ViewComments from './ViewComments';
 import { updateVotes } from '../utils/api';
 
 const IndividualArticleCard = ({ article }) => {
   const [votes, setVotes] = useState(article.votes);
   const [err, setErr] = useState(null);
+  const [showComments, setShowComments] = useState(false);
+  const [revealButton, setRevealButton] = useState(true);
+  
   const { article_id } = article;
-
+  
+  const handleClick = () => {
+    setShowComments(!showComments);
+    setRevealButton(!revealButton);
+  };
+  
   const handleUpClick = () => {
     setVotes((currVotes) => currVotes + 1);
     updateVotes(article_id, 1).catch(() => {
@@ -34,7 +43,10 @@ const IndividualArticleCard = ({ article }) => {
         Votes: {votes}
         <button onClick={handleDownClick}>👎</button>
       </p>
-      <button>💬 {article.comment_count} comments</button>
+      <button onClick={handleClick}>
+        💬 {article.comment_count} {revealButton ? 'Show' : 'Hide'} comments
+      </button>
+      {showComments && <ViewComments />}
     </div>
   );
 };

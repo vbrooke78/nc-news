@@ -28,6 +28,12 @@ export const getArticle = (article_id) => {
   });
 };
 
+
+export const getComments = (article_id) => {
+  return vbNewsApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+
 export const updateVotes = (article_id, inc_votes) => {
   return vbNewsApi
     .patch(`/articles/${article_id}`, {
@@ -36,4 +42,5 @@ export const updateVotes = (article_id, inc_votes) => {
     .then(({ data }) => {
       return data.updatedArticle;
     });
+
 };
