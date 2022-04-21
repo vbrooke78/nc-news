@@ -1,29 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { updateVotes } from '../utils/api';
 
 const IndividualArticleCard = ({ article }) => {
   const [votes, setVotes] = useState(article.votes);
-  const [hasVoted, setHasVoted] = useState(false);
-  const [newVote, setNewVote] = useState(0);
   const [err, setErr] = useState(null);
   const { article_id } = article;
 
-  const handleClick = (num) => {
-    setNewVote((currVotes) => currVotes + num);
-    setHasVoted(true);
+  const handleUpClick = () => {
+    setVotes((currVotes) => currVotes + 1);
+    updateVotes(article_id, 1).catch(() => {
+      setVotes((currVotes) => currVotes - 1);
+      setErr('Sorry your vote failed, please try again');
+    });
   };
 
-  useEffect(() => {
-    if (!hasVoted) return;
-
-    updateVotes(article_id, newVote)
-      .then((updatedArticle) => {
-        setVotes((currVotes) => currVotes + newVote);
-      })
-      .catch(() => {
-        setErr('Sorry your vote failed, please try again');
-      });
-  }, [article_id, hasVoted]);
+  const handleDownClick = () => {
+    setVotes((currVotes) => currVotes - 1);
+    updateVotes(article_id, -1).catch(() => {
+      setVotes((currVotes) => currVotes + 1);
+      setErr('Sorry your vote failed, please try again');
+    });
+  };
 
   if (err) return <p>{err}</p>;
   return (
@@ -33,9 +30,9 @@ const IndividualArticleCard = ({ article }) => {
       <p>By: {article.author}</p>
       <p>{article.body}</p>
       <p>
-        <button onClick={() => handleClick(1)}>👍</button>
+        <button onClick={handleUpClick}>👍</button>
         Votes: {votes}
-        <button onClick={() => handleClick(-1)}>👎</button>
+        <button onClick={handleDownClick}>👎</button>
       </p>
       <button>💬 {article.comment_count} comments</button>
     </div>
