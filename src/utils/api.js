@@ -27,3 +27,13 @@ export const getArticle = (article_id) => {
     return data.article;
   });
 };
+
+export const updateVotes = (article_id, inc_votes) => {
+  return vbNewsApi
+    .patch(`/articles/${article_id}`, {
+      inc_votes,
+    })
+    .then(({ data }) => {
+      return data.updatedArticle;
+    });
+};
