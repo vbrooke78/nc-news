@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { getComments } from '../utils/api';
 import ViewComments from './ViewComments';
 
 const IndividualArticleCard = ({ article }) => {
   const [showComments, setShowComments] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState(true);
   const handleClick = () => {
     setShowComments(!showComments);
+    setButtonLabel(!buttonLabel);
   };
 
   return (
@@ -19,7 +20,9 @@ const IndividualArticleCard = ({ article }) => {
         <button>👍</button>
         <button>👎</button>
       </p>
-      <button onClick={handleClick}>💬 {article.comment_count} comments</button>
+      <button onClick={handleClick}>
+        💬 {article.comment_count} {buttonLabel ? 'Show' : 'Hide'} comments
+      </button>
       {showComments && <ViewComments />}
     </div>
   );

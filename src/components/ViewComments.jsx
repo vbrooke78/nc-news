@@ -15,6 +15,7 @@ const ViewComments = () => {
   }, [article_id]);
 
   if (isLoading) return <p>Loading...</p>;
+  if (comments.length === 0) return <p>Be the first to comment!</p>;
   return (
     <ul>
       {comments.map((comment) => {
