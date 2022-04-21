@@ -3,10 +3,10 @@ import ViewComments from './ViewComments';
 
 const IndividualArticleCard = ({ article }) => {
   const [showComments, setShowComments] = useState(false);
-  const [buttonLabel, setButtonLabel] = useState(true);
+  const [revealButton, setRevealButton] = useState(true);
   const handleClick = () => {
     setShowComments(!showComments);
-    setButtonLabel(!buttonLabel);
+    setRevealButton(!revealButton);
   };
 
   return (
@@ -21,7 +21,7 @@ const IndividualArticleCard = ({ article }) => {
         <button>👎</button>
       </p>
       <button onClick={handleClick}>
-        💬 {article.comment_count} {buttonLabel ? 'Show' : 'Hide'} comments
+        💬 {article.comment_count} {revealButton ? 'Show' : 'Hide'} comments
       </button>
       {showComments && <ViewComments />}
     </div>
