@@ -4,11 +4,13 @@ const vbNewsApi = axios.create({
   baseURL: 'https://vbnews.herokuapp.com/api',
 });
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sortBy, orderBy) => {
   return vbNewsApi
     .get('/articles', {
       params: {
-        topic,
+        topic: topic,
+        sort_by: sortBy,
+        order: orderBy,
       },
     })
     .then(({ data }) => {
