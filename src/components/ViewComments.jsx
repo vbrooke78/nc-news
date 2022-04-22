@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getComments } from '../utils/api';
+import DeleteComments from './DeleteComments';
 import PostComment from './PostComment';
 
 const ViewComments = () => {
@@ -35,6 +36,14 @@ const ViewComments = () => {
                 Votes: {comment.votes}
                 <button>👎</button>
               </p>
+
+              {comment.author === 'grumpy19' ? (
+                <DeleteComments
+                  comments={comments}
+                  setComments={setComments}
+                  comment_id={comment.comment_id}
+                />
+              ) : null}
             </li>
           );
         })}
