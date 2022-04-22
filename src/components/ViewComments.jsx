@@ -3,8 +3,11 @@ import { useParams } from 'react-router-dom';
 import { getComments } from '../utils/api';
 import DeleteComments from './DeleteComments';
 import PostComment from './PostComment';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/Users';
 
 const ViewComments = () => {
+  const { user, setUser } = useContext(UserContext);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
@@ -37,7 +40,7 @@ const ViewComments = () => {
                 <button>👎</button>
               </p>
 
-              {comment.author === 'grumpy19' ? (
+              {comment.author === user.username ? (
                 <DeleteComments
                   comments={comments}
                   setComments={setComments}

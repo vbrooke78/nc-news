@@ -116,8 +116,9 @@ ul {
     grid-template-columns: min-content auto;
     grid-template-rows: max-content auto;
     grid-template-areas:
-      'top top'
-      'sidebar main';
+      'top top top top'
+      'empty sort-by login welcome'
+      'sidebar main main main';
     justify-content: center;
   }
 
@@ -141,12 +142,12 @@ ul {
 
   .individual-article {
     grid-area: main;
-    max-width: 850px;
+    max-width: 1000px;
     align-self: center;
   }
 
   .input-label {
-    grid-area: main;
+    grid-area: sort-by;
     align-items: flex-start;
     display: flex;
   }
@@ -162,5 +163,14 @@ ul {
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
+  }
+
+  .user-login {
+    grid-area: login;
+  }
+
+  .user-welcome {
+    grid-area: welcome;
+    /* display: flex; */
   }
 }

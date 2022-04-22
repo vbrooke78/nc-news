@@ -60,3 +60,9 @@ export const postComment = (article_id, username, comment) => {
 export const deleteComment = (comment_id) => {
   return vbNewsApi.delete(`/comments/${comment_id}`);
 };
+
+export const getUser = (username) => {
+  return vbNewsApi.get(`/users/${username}`).then(({ data }) => {
+    return data.user;
+  });
+};
