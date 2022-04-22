@@ -3,7 +3,9 @@
 }
 
 button {
-  margin: 0px 10px;
+  border: 2px solid rgb(216, 214, 214);
+  margin: 0px 10px 10px 10px;
+  border-radius: 5px;
 }
 
 body {
@@ -24,9 +26,39 @@ h2 {
   color: #0d0d0d;
 }
 
+.username-label {
+  align-items: flex-start;
+  display: flex;
+}
+
+label {
+  float: left;
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
 li {
   word-wrap: normal;
   background-color: #c6eddf;
+}
+
+input {
+  margin: 10px;
+}
+
+p {
+  padding: 5px 5px 0px 5px;
+}
+
+textarea {
+  width: 95%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #e4f7f0;
+  resize: none;
 }
 
 ul {
@@ -62,6 +94,16 @@ ul {
   background-color: #bebabf;
 }
 
+.post-comment_button {
+  background-color: #65a68e;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 25px;
+  margin: 4px 2px;
+}
+
 @media only screen and (min-width: 768px) {
   .App {
     display: grid;
@@ -73,7 +115,7 @@ ul {
     justify-content: center;
   }
   p {
-    padding: 0em 4em;
+    padding: 10px 4em 0px 4em;
 
     text-align: center;
   }
@@ -83,6 +125,11 @@ ul {
     display: flex;
     flex-wrap: wrap;
     flex: 1;
+  }
+
+  .comment-form {
+    grid-area: main;
+    align-self: flex-end;
   }
 
   .individual-article {

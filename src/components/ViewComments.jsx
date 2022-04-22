@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getComments } from '../utils/api';
+import PostComment from './PostComment';
 
 const ViewComments = () => {
   const [comments, setComments] = useState([]);
@@ -12,26 +13,33 @@ const ViewComments = () => {
       setComments(commentsFromApi);
       setIsLoading(false);
     });
-  }, [article_id]);
+  }, [article_id, setComments]);
 
   if (isLoading) return <p>Loading...</p>;
   if (comments.length === 0) return <p>Be the first to comment!</p>;
   return (
-    <ul>
-      {comments.map((comment) => {
-        return (
-          <li key={comment.comment_id}>
-            <p>{comment.author}</p>
-            <p>{comment.body}</p>
-            <p>
-              <button>👍</button>
-              Votes: {comment.votes}
-              <button>👎</button>
-            </p>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <PostComment
+        article_id={article_id}
+        comment={comments}
+        setComments={setComments}
+      />
+      <ul>
+        {comments.map((comment) => {
+          return (
+            <li key={comment.comment_id}>
+              <p>{comment.author}</p>
+              <p>{comment.body}</p>
+              <p>
+                <button>👍</button>
+                Votes: {comment.votes}
+                <button>👎</button>
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 };
 

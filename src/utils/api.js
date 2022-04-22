@@ -28,11 +28,11 @@ export const getArticle = (article_id) => {
   });
 };
 
-
 export const getComments = (article_id) => {
   return vbNewsApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
     return data.comments;
   });
+};
 
 export const updateVotes = (article_id, inc_votes) => {
   return vbNewsApi
@@ -42,5 +42,15 @@ export const updateVotes = (article_id, inc_votes) => {
     .then(({ data }) => {
       return data.updatedArticle;
     });
+};
 
+export const postComment = (article_id, username, comment) => {
+  return vbNewsApi
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: comment,
+    })
+    .then(({ data }) => {
+      return data.newComment;
+    });
 };
