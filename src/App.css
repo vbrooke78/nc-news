@@ -26,11 +26,6 @@ h2 {
   color: #0d0d0d;
 }
 
-.username-label {
-  align-items: flex-start;
-  display: flex;
-}
-
 label {
   float: left;
   padding-left: 15px;
@@ -80,6 +75,10 @@ ul {
   border: solid 1px grey;
 }
 
+.input-label {
+  margin: 10px;
+}
+
 .links {
   margin: 1em;
 }
@@ -104,6 +103,13 @@ ul {
   margin: 4px 2px;
 }
 
+.username-label {
+  align-items: flex-start;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
 @media only screen and (min-width: 768px) {
   .App {
     display: grid;
@@ -114,6 +120,7 @@ ul {
       'sidebar main';
     justify-content: center;
   }
+
   p {
     padding: 10px 4em 0px 4em;
 
@@ -136,6 +143,12 @@ ul {
     grid-area: main;
     max-width: 850px;
     align-self: center;
+  }
+
+  .input-label {
+    grid-area: main;
+    align-items: flex-start;
+    display: flex;
   }
 
   .listItems {
