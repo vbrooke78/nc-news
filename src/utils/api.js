@@ -56,3 +56,7 @@ export const postComment = (article_id, username, comment) => {
       return data.newComment;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return vbNewsApi.delete(`/comments/${comment_id}`);
+};
