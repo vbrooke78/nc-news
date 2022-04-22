@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { postComment } from '../utils/api';
 
 const PostComment = ({ article_id, comments, setComments }) => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('jessjelly');
   const [comment, setComment] = useState('');
   const [posted, setPosted] = useState(false);
 
