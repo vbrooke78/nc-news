@@ -4,19 +4,11 @@ import Header from './components/Header';
 import Articles from './components/Articles';
 import Nav from './components/Nav';
 import IndividualArticle from './components/IndividualArticle';
-import { UserContext } from './contexts/Users';
-import { useState } from 'react';
+import { UserProvider } from './contexts/Users';
 
 function App() {
-  const [user, setUser] = useState({
-    username: 'grumpy19',
-    avatar_url:
-      'https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013',
-    name: 'Paul Grump',
-  });
-
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserProvider>
       <div className="App">
         <Header />
         <Nav />
@@ -30,7 +22,7 @@ function App() {
           ></Route>
         </Routes>
       </div>
-    </UserContext.Provider>
+    </UserProvider>
   );
 }
 
