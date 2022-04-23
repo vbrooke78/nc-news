@@ -6,6 +6,7 @@ button {
   border: 2px solid rgb(216, 214, 214);
   margin: 0px 10px 10px 10px;
   border-radius: 5px;
+  font-size: large;
 }
 
 body {
@@ -30,6 +31,7 @@ label {
   float: left;
   padding-left: 15px;
   padding-right: 10px;
+  font-size: large;
 }
 
 li {
@@ -39,6 +41,7 @@ li {
 
 input {
   margin: 10px;
+  font-size: large;
 }
 
 p {
@@ -61,6 +64,10 @@ ul {
   padding: 0px 5px;
 }
 
+.dropdown {
+  font-size: large;
+}
+
 .Header {
   grid-area: top;
   border: 2px solid #65a68e;
@@ -77,6 +84,7 @@ ul {
 
 .input-label {
   margin: 10px;
+  font-size: large;
 }
 
 .links {
@@ -113,11 +121,12 @@ ul {
 @media only screen and (min-width: 768px) {
   .App {
     display: grid;
-    grid-template-columns: min-content auto;
+    grid-template-columns: 0.5fr 2fr 2fr 2fr;
     grid-template-rows: max-content auto;
     grid-template-areas:
-      'top top'
-      'sidebar main';
+      'top top top top'
+      'sidebar sort-by login welcome'
+      'sidebar main main main';
     justify-content: center;
   }
 
@@ -141,13 +150,13 @@ ul {
 
   .individual-article {
     grid-area: main;
-    max-width: 850px;
+    max-width: 1000px;
     align-self: center;
   }
 
   .input-label {
-    grid-area: main;
-    align-items: flex-start;
+    grid-area: sort-by;
+    align-items: center;
     display: flex;
   }
 
@@ -162,5 +171,29 @@ ul {
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
+  }
+
+  .user-image {
+    grid-area: welcome;
+  }
+
+  .container {
+    display: flex;
+    grid-area: welcome;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 5em;
+  }
+  .user-login {
+    display: flex;
+    grid-area: login;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  .user-welcome {
+    grid-area: welcome;
+    white-space: nowrap;
   }
 }
