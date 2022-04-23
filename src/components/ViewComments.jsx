@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { UserContext } from '../contexts/Users';
 
 const ViewComments = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();

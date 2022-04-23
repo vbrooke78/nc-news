@@ -17,7 +17,7 @@ const UserTheme = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className="user-login">
-        {/* <label htmlFor="login">Login:</label> */}
+        <label htmlFor="login">Enter username:</label>
         <input
           id="login"
           type="text"
@@ -26,13 +26,18 @@ const UserTheme = () => {
         />
         <button type="submit">Login</button>
       </form>
-      <h3 className="user-welcome">Welcome {user.username}</h3>
-      <img
-        className="user-welcome"
-        alt="user avatar"
-        src={user.avatar_url}
-        height="120"
-      />
+      <div className="container">
+        <h3 className="user-welcome">
+          Welcome <br />
+          {user.username}
+        </h3>
+        <img
+          className="user-welcome"
+          alt="user avatar"
+          src={user.avatar_url}
+          height="120"
+        />
+      </div>
     </>
   );
 };
