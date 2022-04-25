@@ -142,10 +142,13 @@ ul {
     flex-wrap: wrap;
     flex: 1;
   }
-
+  .comment-form_username {
+  }
   .comment-form {
+    display: flex;
     grid-area: main;
-    align-self: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .individual-article {
