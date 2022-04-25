@@ -139,11 +139,11 @@ ul {
   .articles {
     grid-area: main;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     flex: 1;
   }
-  .comment-form_username {
-  }
+
   .comment-form {
     display: flex;
     grid-area: main;
