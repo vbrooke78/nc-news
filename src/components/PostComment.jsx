@@ -1,10 +1,13 @@
+import { useContext } from 'react';
 import { useState } from 'react';
+import { UserContext } from '../contexts/Users';
 import { postComment } from '../utils/api';
 
 const PostComment = ({ article_id, comments, setComments }) => {
   const [username, setUsername] = useState('jessjelly');
   const [comment, setComment] = useState('');
   const [posted, setPosted] = useState(false);
+  const { user } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +27,8 @@ const PostComment = ({ article_id, comments, setComments }) => {
   };
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
-      <label className="username-label" htmlFor="username">
+      <p className="comment-form_username">Post comment as {user.username}</p>
+      {/* <label className="username-label" htmlFor="username">
         Username:
       </label>
       <input
@@ -35,7 +39,7 @@ const PostComment = ({ article_id, comments, setComments }) => {
         onChange={(e) => setUsername(e.target.value)}
         required
       />
-      {/* <label htmlFor="comment">Comment:</label> */}
+      <label htmlFor="comment">Comment:</label> */}
       <textarea
         placeholder="Post your comment here"
         id="comment"
