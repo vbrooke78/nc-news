@@ -66,3 +66,9 @@ export const getUser = (username) => {
     return data.user;
   });
 };
+
+export const getUsers = () => {
+  return vbNewsApi.get('/users').then(({ data }) => {
+    return data.users;
+  });
+};

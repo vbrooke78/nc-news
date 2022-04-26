@@ -5,6 +5,7 @@ import Articles from './components/Articles';
 import Nav from './components/Nav';
 import IndividualArticle from './components/IndividualArticle';
 import { UserProvider } from './contexts/Users';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Nav />
         <Routes>
+          <Route path="*" element={<ErrorPage />}></Route>
           <Route path="/" element={<Articles />}></Route>
           <Route path="/articles" element={<Articles />}></Route>
           <Route path="/:topic" element={<Articles />}></Route>

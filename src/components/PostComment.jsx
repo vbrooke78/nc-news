@@ -2,10 +2,12 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { UserContext } from '../contexts/Users';
 import { postComment } from '../utils/api';
+import ErrorPage from './ErrorPage';
 
 const PostComment = ({ article_id, comments, setComments }) => {
   const [username, setUsername] = useState('jessjelly');
   const [comment, setComment] = useState('');
+  const [error, setError] = useState(null);
   const [posted, setPosted] = useState(false);
   const { user } = useContext(UserContext);
 
@@ -22,24 +24,14 @@ const PostComment = ({ article_id, comments, setComments }) => {
         setComment('');
       })
       .catch((err) => {
-        console.log(err);
+        setError(err);
       });
   };
+
+  if (error) return <ErrorPage error={error} />;
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
       <p className="comment-form_username">Post comment as {user.username}</p>
-      {/* <label className="username-label" htmlFor="username">
-        Username:
-      </label>
-      <input
-        className="username-label"
-        type="text"
-        id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <label htmlFor="comment">Comment:</label> */}
       <textarea
         placeholder="Post your comment here"
         id="comment"

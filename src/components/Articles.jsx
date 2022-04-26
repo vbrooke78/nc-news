@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getArticles } from '../utils/api';
 import { ArticleCard } from './ArticleCard';
+import ErrorPage from './ErrorPage';
 import OrderArticles from './OrderArticles';
 import SortArticles from './SortArticles';
 
@@ -9,7 +10,7 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState('created_at');
   const [orderBy, setOrderBy] = useState('desc');
-  const [err, setErr] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
 
@@ -18,28 +19,33 @@ const Articles = () => {
       .then((articlesFromApi) => {
         setArticles(articlesFromApi);
         setIsLoading(false);
-        setErr(null);
+        setError(null);
       })
       .catch((err) => {
-        setErr('Topic not found ☹️');
+        setError(err);
       });
   }, [topic, setArticles, sortBy, orderBy]);
 
-  if (err) return <p>{err}</p>;
-  if (isLoading) return <p>Loading...</p>;
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <>
-      <section className="input-label">
-        <SortArticles setSortBy={setSortBy} />
-        <OrderArticles setOrderBy={setOrderBy} />
-      </section>
+      {isLoading ? (
+        <h2 className="isLoading">Loading articles...</h2>
+      ) : (
+        <>
+          <section className="input-label">
+            <SortArticles setSortBy={setSortBy} />
+            <OrderArticles setOrderBy={setOrderBy} />
+          </section>
 
-      <ul className="articles">
-        {articles.map((article) => {
-          return <ArticleCard key={article.article_id} article={article} />;
-        })}
-      </ul>
+          <ul className="articles">
+            {articles.map((article) => {
+              return <ArticleCard key={article.article_id} article={article} />;
+            })}
+          </ul>
+        </>
+      )}
     </>
   );
 };
