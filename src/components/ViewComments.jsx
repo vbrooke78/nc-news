@@ -5,20 +5,27 @@ import DeleteComments from './DeleteComments';
 import PostComment from './PostComment';
 import { useContext } from 'react';
 import { UserContext } from '../contexts/Users';
+import ErrorPage from './ErrorPage';
 
 const ViewComments = () => {
   const { user } = useContext(UserContext);
   const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
 
   useEffect(() => {
-    getComments(article_id).then((commentsFromApi) => {
-      setComments(commentsFromApi);
-      setIsLoading(false);
-    });
+    getComments(article_id)
+      .then((commentsFromApi) => {
+        setComments(commentsFromApi);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [article_id, setComments]);
 
+  if (error) return <ErrorPage error={error} />;
   if (isLoading) return <p>Loading...</p>;
   if (comments.length === 0) return <p>Be the first to comment!</p>;
   return (

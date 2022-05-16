@@ -1,23 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getArticles } from '../utils/api';
 import { ArticleCard } from './ArticleCard';
 import ErrorPage from './ErrorPage';
 import OrderArticles from './OrderArticles';
 import SortArticles from './SortArticles';
+import { UserContext } from '../contexts/Users';
 
-const Articles = () => {
+const MyArticles = () => {
   const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState('created_at');
   const [orderBy, setOrderBy] = useState('desc');
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     getArticles(topic, sortBy, orderBy)
       .then((articlesFromApi) => {
-        setArticles(articlesFromApi);
+        setArticles(
+          articlesFromApi.filter((article) => article.author === user.username)
+        );
         setIsLoading(false);
         setError(null);
       })
@@ -50,4 +54,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default MyArticles;
