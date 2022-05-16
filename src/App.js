@@ -6,6 +6,8 @@ import Nav from './components/Nav';
 import IndividualArticle from './components/IndividualArticle';
 import { UserProvider } from './contexts/Users';
 import ErrorPage from './components/ErrorPage';
+import Profile from './components/Profile';
+import MyArticles from './components/MyArticles';
 
 function App() {
   return (
@@ -14,14 +16,13 @@ function App() {
         <Header />
         <Nav />
         <Routes>
-          <Route path="*" element={<ErrorPage />}></Route>
-          <Route path="/" element={<Articles />}></Route>
-          <Route path="/articles" element={<Articles />}></Route>
-          <Route path="/:topic" element={<Articles />}></Route>
-          <Route
-            path="/articles/:article_id"
-            element={<IndividualArticle />}
-          ></Route>
+          <Route path="*" element={<ErrorPage />} />
+          <Route path="/" element={<Articles />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/:topic" element={<Articles />} />
+          <Route path="/articles/:article_id" element={<IndividualArticle />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/my_articles" element={<MyArticles />} />
         </Routes>
       </div>
     </UserProvider>

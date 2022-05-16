@@ -78,7 +78,7 @@ ul {
 
 .individual-article {
   padding: 0em 1em 2em 1em;
-  margin: 0em 2em;
+  margin: 1em 1em;
   border: solid 1px grey;
 }
 
@@ -121,12 +121,12 @@ ul {
 @media only screen and (min-width: 768px) {
   .App {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 2fr 2fr;
+    grid-template-columns: 0.5fr 2fr 2fr;
     grid-template-rows: max-content auto;
     grid-template-areas:
-      'top top top top'
-      'sidebar sort-by login welcome'
-      'sidebar main main main';
+      'top top top'
+      'sidebar sort-by login'
+      'sidebar main main';
     justify-content: center;
   }
 
@@ -154,13 +154,13 @@ ul {
   .individual-article {
     grid-area: main;
     max-width: 1000px;
-    align-self: center;
   }
 
   .input-label {
     grid-area: sort-by;
     align-items: center;
     display: flex;
+    margin-left: 50px;
   }
 
   .listItems {
@@ -174,15 +174,16 @@ ul {
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
   }
 
   .user-image {
-    grid-area: welcome;
+    grid-area: login;
   }
 
-  .container {
+  .login-container {
     display: flex;
-    grid-area: welcome;
+    grid-area: login;
     align-items: center;
     justify-content: flex-end;
     margin-right: 5em;
@@ -191,12 +192,38 @@ ul {
     display: flex;
     grid-area: login;
     align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 50px;
+  }
+
+  .user-profile {
+    display: flex;
+    grid-area: main;
+    align-items: center;
     flex-direction: column;
   }
 
-  .user-welcome {
-    grid-area: welcome;
-    white-space: nowrap;
+  .profile-container {
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    width: 40%;
+  }
+  .profile-container img {
+    padding: 5px;
+    height: 200px;
+  }
+  .profile-container dl {
+    flex-grow: 2;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 1.5rem;
+    color: #000;
+    border-radius: 5px;
   }
 }
