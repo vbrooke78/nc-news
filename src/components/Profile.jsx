@@ -4,7 +4,6 @@ import { UserContext } from '../contexts/Users';
 
 const Profile = () => {
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
   let navigate = useNavigate();
 
   const handleLogout = (e) => {
@@ -35,10 +34,13 @@ const Profile = () => {
           </dt>
         </dl>
       </div>
-      <Link className="my-articles" key="my-articles" to={`/my_articles`}>
+      <Link key="my-articles" to={`/my_articles`}>
         <button>View my articles</button>
       </Link>
-      <Link className="my-articles" key="home" to={`/`}>
+      <Link key="post-article" to={`/post_article`}>
+        <button>Post an article</button>
+      </Link>
+      <Link key="home" to={`/`}>
         <button onClick={handleLogout}>Logout</button>
       </Link>
     </div>

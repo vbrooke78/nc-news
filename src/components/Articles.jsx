@@ -41,7 +41,14 @@ const Articles = () => {
 
           <ul className="articles">
             {articles.map((article) => {
-              return <ArticleCard key={article.article_id} article={article} />;
+              return (
+                <ArticleCard
+                  key={article.article_id}
+                  article={article}
+                  articles={articles}
+                  setArticles={setArticles}
+                />
+              );
             })}
           </ul>
         </>

@@ -1,5 +1,4 @@
 const ErrorPage = ({ error: { response } }) => {
-  console.log(response);
   return (
     <>
       {response.status ? (
