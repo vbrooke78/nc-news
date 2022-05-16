@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/Users';
+import DeleteArticle from './DeleteArticle';
 
-export const ArticleCard = ({ article }) => {
+export const ArticleCard = ({ article, articles, setArticles }) => {
+  const { user } = useContext(UserContext);
+
   return (
     <li className="listItems" key={article.article_id}>
       <h2>{article.title}</h2>
@@ -11,6 +16,13 @@ export const ArticleCard = ({ article }) => {
       <Link to={`/articles/${article.article_id}`}>
         <button>Read more</button>
       </Link>
+      {article.author === user.username ? (
+        <DeleteArticle
+          articles={articles}
+          setArticles={setArticles}
+          article_id={article.article_id}
+        />
+      ) : null}
     </li>
   );
 };

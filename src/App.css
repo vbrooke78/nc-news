@@ -226,4 +226,8 @@ ul {
     color: #000;
     border-radius: 5px;
   }
+
+  .post-article-container {
+    grid-area: main;
+  }
 }

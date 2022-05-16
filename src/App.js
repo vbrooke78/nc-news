@@ -8,6 +8,7 @@ import { UserProvider } from './contexts/Users';
 import ErrorPage from './components/ErrorPage';
 import Profile from './components/Profile';
 import MyArticles from './components/MyArticles';
+import PostArticle from './components/PostArticle';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/articles/:article_id" element={<IndividualArticle />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/my_articles" element={<MyArticles />} />
+          <Route path="/post_article" element={<PostArticle />} />
         </Routes>
       </div>
     </UserProvider>
