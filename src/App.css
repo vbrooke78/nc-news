@@ -90,7 +90,14 @@ ul {
 }
 
 .links {
-  margin: 1em;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+.links:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .listItems {
@@ -100,7 +107,10 @@ ul {
 }
 
 .navBar {
+  display: flex;
+  justify-content: center;
   background-color: #bebabf;
+  height: 40px;
 }
 
 .post-comment_button {
@@ -111,6 +121,18 @@ ul {
   text-decoration: none;
   border-radius: 25px;
   margin: 4px 2px;
+}
+
+.orderby-container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.sortby-container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
 }
 
 .username-label {
@@ -153,6 +175,17 @@ ul {
     justify-content: center;
   }
 
+  .error-container {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error-container button {
+    max-width: 10%;
+    align-self: center;
+  }
+
   .individual-article {
     grid-area: main;
     max-width: 1000px;
@@ -165,6 +198,17 @@ ul {
     margin-left: 50px;
   }
 
+  .links {
+    padding: 20px 15px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .links:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
   .listItems {
     border: 1px solid black;
     padding: 0.5em 1.5em;
@@ -172,61 +216,32 @@ ul {
     width: 25%;
   }
 
-  .navBar {
-    grid-area: sidebar;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .user-image {
-    grid-area: login;
-  }
-
   .login-container {
     display: flex;
+    flex-direction: row;
     grid-area: login;
     align-items: center;
     justify-content: flex-end;
     margin-right: 5em;
   }
-  .user-login {
-    display: flex;
-    grid-area: login;
-    align-items: flex-end;
-    justify-content: center;
-    flex-direction: column;
-    margin-right: 50px;
-  }
 
-  .user-profile {
+  .login-text-container {
     display: flex;
-    grid-area: main;
+    flex-direction: column;
     align-items: center;
-    flex-direction: column;
   }
 
-  .profile-container {
+  .navBar {
+    grid-area: sidebar;
     display: flex;
-
     justify-content: flex-start;
-    align-items: center;
-    font-size: 1.3rem;
-    line-height: 1.8;
-    width: 40%;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 100%;
   }
-  .profile-container img {
-    padding: 5px;
-    height: 200px;
-  }
-  .profile-container dl {
-    flex-grow: 2;
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-size: 1.5rem;
-    color: #000;
-    border-radius: 5px;
+
+  .post-article-body {
+    margin: 10px 30px;
   }
 
   .post-article-container {
@@ -241,16 +256,16 @@ ul {
     /* align-self: center; */
   }
 
-  .post-article-heading {
-    text-align: left;
-    margin-left: 30px;
-  }
-
   .post-article-form {
     display: flex;
     grid-area: main;
     flex-wrap: wrap;
     flex-direction: column;
+  }
+
+  .post-article-heading {
+    text-align: left;
+    margin-left: 30px;
   }
 
   .post-article-title {
@@ -264,18 +279,39 @@ ul {
     margin: 15px;
   }
 
-  .post-article-body {
-    margin: 10px 30px;
-  }
-
-  .error-container {
-    grid-area: main;
+  .profile-container {
     display: flex;
-    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    width: 40%;
   }
 
-  .error-container button {
-    max-width: 10%;
-    align-self: center;
+  .profile-container img {
+    padding: 5px;
+    height: 200px;
+  }
+
+  .profile-container dl {
+    flex-grow: 2;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 1.5rem;
+    color: #000;
+    border-radius: 5px;
+  }
+
+  .user-image {
+    grid-area: login;
+  }
+
+  .user-profile {
+    display: flex;
+    grid-area: main;
+    align-items: center;
+    flex-direction: column;
   }
 }

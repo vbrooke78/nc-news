@@ -11,7 +11,7 @@ const SortArticles = ({ setSortBy }) => {
   };
 
   return (
-    <>
+    <div className="sortby-container">
       <label htmlFor="sort-by">Sort by:</label>
       <select className="dropdown" id="sort-by" onChange={handleChange}>
         <option>--select--</option>
@@ -23,7 +23,7 @@ const SortArticles = ({ setSortBy }) => {
           );
         })}
       </select>
-    </>
+    </div>
   );
 };
 

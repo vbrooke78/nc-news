@@ -14,7 +14,7 @@ const Profile = () => {
 
   return (
     <div className="user-profile">
-      <h1>Welcome {user.name}</h1>
+      <h1>{user.name}'s Profile</h1>
       <div className="profile-container">
         <img
           className="profile-container"
@@ -28,9 +28,6 @@ const Profile = () => {
           </dt>
           <dt>
             <strong>Username:</strong> {user.username}
-          </dt>
-          <dt>
-            <strong>Articles posted:</strong>
           </dt>
         </dl>
       </div>
