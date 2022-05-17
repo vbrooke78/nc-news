@@ -25,10 +25,6 @@ code {
     monospace;
 }
 
-h1 {
-  font-size: 70px;
-}
-
 h2 {
   color: #0d0d0d;
 }
@@ -140,6 +136,10 @@ ul {
   align-items: center;
 }
 
+.login-form-container label {
+  margin-top: 10px;
+}
+
 .login-text-container {
   display: flex;
   flex-direction: column;
@@ -197,6 +197,10 @@ ul {
       'sidebar sort-by login'
       'sidebar main main';
     justify-content: center;
+  }
+
+  h1 {
+    font-size: 70px;
   }
 
   p {
