@@ -1,40 +1,71 @@
 # FRONT END PROJECT - NC NEWS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app is a news article site build using React. This was created during a week long sprint as part of a @Northcoders coding bootcamp.
 
-## Available Scripts
+The app uses a RESTful API which I created for my backend project using PostgreSQL for my database.
 
-In the project directory, you can run:
+The app has been styled with CSS using a mobile-first approach.
 
-### `npm start`
+A link to my backend project can be found here https://github.com/vbrooke78/be-nc-news
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# HOSTED VERSION
 
-### `npm test`
+The app is hosted on Netlify at https://vbnews.netlify.app/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# FEATURES
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The app features the following user stories:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+As a user I can:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- view all articles
+- view articles filtered by topic
+- sort articles by author, number of comments, date created, number of votes and display in ascending or descending order
+- view an individual article
+- vote on an article
+- login to the app
+- comment on an existing article if I am logged in to the app
+- delete comments I have written
+- post a new article
+- delete an article I have posted
+- view my profile page
+- view articles I have posted
 
-### `npm run eject`
+# TECH
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React
+- Axios for API calls
+- CSS
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In addition I used:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Mobile first approach
+- Optimistic rendering of votes
+- Error handling of incorrect paths
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# INSTRUCTIONS
+
+Fork this repo.
+In your terminal 
+```sh
+git clone https://github.com/vbrooke78/nc-news.git
+cd nc-news
+```
+To install dependencies
+```sh
+npm install
+```
+To run the development build
+```sh
+npm start
+```
+
+# MINIMUN REQUIREMENTS
+
+- Nodejs v16.13.0
+Note: Earlier versions may work but have not been tested
+
+
+
