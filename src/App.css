@@ -1,3 +1,5 @@
+/*----------Narrow view----------*/
+
 .App {
   text-align: center;
 }
@@ -229,5 +231,34 @@ ul {
 
   .post-article-container {
     grid-area: main;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-article-heading {
+    text-align: left;
+    margin-left: 30px;
+  }
+
+  .post-article-form {
+    display: flex;
+    grid-area: main;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .post-article-title {
+    display: flex;
+    /* align-items: center; */
+    margin: 10px 30px;
+  }
+
+  .post-article-topic {
+    display: flex;
+    margin: 15px;
+  }
+
+  .post-article-body {
+    margin: 10px 30px;
   }
 }

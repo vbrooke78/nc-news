@@ -3,14 +3,15 @@ import { useState } from 'react';
 import { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/Users';
 import { getTopics, postArticle } from '../utils/api';
-import { useNavigate } from 'react-router-dom';
+import { generatePath, useNavigate } from 'react-router-dom';
 
 const PostArticle = () => {
   const { user, setUser } = useContext(UserContext);
   let navigate = useNavigate();
+  const [path, setPath] = useState('');
   const [error, setError] = useState('');
   const [topics, setTopics] = useState([]);
-  const [newArticle, setNewArticle] = useState({
+  const [article, setArticle] = useState({
     title: '',
     body: '',
     topic: '',
@@ -22,55 +23,61 @@ const PostArticle = () => {
     });
   }, []);
 
+  useEffect(() => {
+    setArticle({ ...article, author: user.username });
+  }, [article, user]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setNewArticle({ ...newArticle, author: user.username });
-    postArticle(newArticle);
-    navigate(`/articles/{newPostedArticle.article_id}`);
+    postArticle(article)
+      .then((newArticle) => {
+        navigate(generatePath('/articles/:id', { id: newArticle.article_id }));
+      })
+      .catch((err) => {
+        setError(err);
+      });
   };
 
   if (error) return <ErrorPage error={error} />;
 
   return (
-    <>
-      <h1>Post a new article</h1>
-      <form className="post-article_form" onSubmit={handleSubmit}>
-        <label htmlFor="title">Title:</label>
-        <input
+    <div className="post-article-container">
+      <h2 className="post-article-heading">
+        Post a new article as {user.username}
+      </h2>
+      <form className="post-article-form" onSubmit={handleSubmit}>
+        <div className="post-article-topic">
+          <label htmlFor="topic">Topic:</label>
+          <select
+            onChange={(e) => setArticle({ ...article, topic: e.target.value })}
+          >
+            <option>---select---</option>
+            {topics.map((topic) => (
+              <option value={topic.slug} key={topic.slug}>
+                {topic.slug}
+              </option>
+            ))}
+          </select>
+        </div>
+        <textarea
+          className="post-article-title"
           id="title"
-          type="text"
           required
-          // defaultValue={user.username}
-          onChange={(e) =>
-            setNewArticle({ ...newArticle, title: e.target.value })
-          }
+          placeholder="Enter title here"
+          value={article.title}
+          onChange={(e) => setArticle({ ...article, title: e.target.value })}
         />
-        <label htmlFor="topic">Topic:</label>
-        <select
-          onChange={(e) =>
-            setNewArticle({ ...newArticle, topic: e.target.value })
-          }
-        >
-          <option>---select---</option>
-          {topics.map((topic) => (
-            <option value={topic.slug} key={topic.slug}>
-              {topic.slug}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="content">Article:</label>
-        <input
+        <textarea
+          className="post-article-body"
           id="content"
-          type="text"
+          placeholder="Post article here"
           required
-          // defaultValue={user.username}
-          onChange={(e) =>
-            setNewArticle({ ...newArticle, body: e.target.value })
-          }
+          value={article.body}
+          onChange={(e) => setArticle({ ...article, body: e.target.value })}
         />
         <button type="submit">Submit</button>
       </form>
-    </>
+    </div>
   );
 };
 
