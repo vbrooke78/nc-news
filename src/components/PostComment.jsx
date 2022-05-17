@@ -1,15 +1,18 @@
-import { useContext } from 'react';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/Users';
 import { postComment } from '../utils/api';
 import ErrorPage from './ErrorPage';
 
 const PostComment = ({ article_id, comments, setComments }) => {
-  const [username, setUsername] = useState('jessjelly');
+  const [username, setUsername] = useState('');
   const [comment, setComment] = useState('');
   const [error, setError] = useState(null);
   const [posted, setPosted] = useState(false);
   const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    setUsername(user.username);
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

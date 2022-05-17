@@ -27,7 +27,7 @@ const ViewComments = () => {
 
   if (error) return <ErrorPage error={error} />;
   if (isLoading) return <p>Loading...</p>;
-  if (comments.length === 0) return <p>Be the first to comment!</p>;
+  // if (comments.length === 0) return <p>Be the first to comment!</p>;
   return (
     <>
       <PostComment
