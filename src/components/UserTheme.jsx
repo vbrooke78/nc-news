@@ -30,14 +30,16 @@ const UserTheme = () => {
       {Object.keys(user).length === 0 ? (
         <div className="login-container">
           <form onSubmit={handleLogin}>
-            <label htmlFor="login">Enter username:</label>
-            <input
-              id="login"
-              type="text"
-              required
-              defaultValue={user.username}
-              onChange={(e) => setNewUser(e.target.value)}
-            />
+            <div className="login-form-container">
+              <label htmlFor="login">Enter username:</label>
+              <input
+                id="login"
+                type="text"
+                required
+                defaultValue={user.username}
+                onChange={(e) => setNewUser(e.target.value)}
+              />
+            </div>
             <button type="submit">Login</button>
           </form>
         </div>

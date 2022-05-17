@@ -18,11 +18,7 @@ const DeleteArticle = ({ setArticles, article_id }) => {
     });
   };
 
-  return (
-    <button className="delete-article-button" onClick={handleDelete}>
-      Delete article
-    </button>
-  );
+  return <button onClick={handleDelete}>Delete article</button>;
 };
 
 export default DeleteArticle;

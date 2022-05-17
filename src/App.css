@@ -66,6 +66,18 @@ ul {
   padding: 0px 5px;
 }
 
+.article-card-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.article-card-buttons button {
+  margin: 2px;
+  padding: 4px;
+}
+
 .dropdown {
   font-size: large;
 }
@@ -85,8 +97,12 @@ ul {
 }
 
 .input-label {
+  justify-content: center;
   margin: 10px;
+  margin-left: 50px;
   font-size: large;
+  align-items: center;
+  display: flex;
 }
 
 .links {
@@ -104,6 +120,25 @@ ul {
   border: 1px solid black;
   padding: 0.5em 1.5em;
   margin: 1em;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: login;
+  justify-content: center;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navBar {
@@ -189,6 +224,7 @@ ul {
   .individual-article {
     grid-area: main;
     max-width: 1000px;
+    align-self: center;
   }
 
   .input-label {
@@ -223,6 +259,12 @@ ul {
     align-items: center;
     justify-content: flex-end;
     margin-right: 5em;
+  }
+
+  .login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .login-text-container {
