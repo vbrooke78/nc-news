@@ -27,14 +27,18 @@ const ViewComments = () => {
 
   if (error) return <ErrorPage error={error} />;
   if (isLoading) return <p>Loading...</p>;
-  if (comments.length === 0) return <p>Be the first to comment!</p>;
+  // if (comments.length === 0) return <p>Be the first to comment!</p>;
   return (
     <>
-      <PostComment
-        article_id={article_id}
-        comment={comments}
-        setComments={setComments}
-      />
+      {Object.keys(user).length > 0 ? (
+        <PostComment
+          article_id={article_id}
+          comment={comments}
+          setComments={setComments}
+        />
+      ) : (
+        <h3>** Please login to post a comment **</h3>
+      )}
       <ul>
         {comments.map((comment) => {
           return (

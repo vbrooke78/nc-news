@@ -19,7 +19,6 @@ const UserTheme = () => {
         setNewUser('');
       })
       .catch((err) => {
-        console.log(err);
         setError(err);
       });
   };
@@ -29,33 +28,38 @@ const UserTheme = () => {
   return (
     <>
       {Object.keys(user).length === 0 ? (
-        <form onSubmit={handleLogin} className="user-login">
-          <label htmlFor="login">Enter username:</label>
-          <input
-            id="login"
-            type="text"
-            required
-            defaultValue={user.username}
-            onChange={(e) => setNewUser(e.target.value)}
-          />
-          <button type="submit">Login</button>
-        </form>
+        <div className="login-container">
+          <form onSubmit={handleLogin}>
+            <div className="login-form-container">
+              <label htmlFor="login">Enter username:</label>
+              <input
+                id="login"
+                type="text"
+                required
+                defaultValue={user.username}
+                onChange={(e) => setNewUser(e.target.value)}
+              />
+            </div>
+            <button type="submit">Login</button>
+          </form>
+        </div>
       ) : (
         <div className="login-container">
-          <h3 className="user-login">
-            Welcome <br />
-            {user.username}
-          </h3>
           <img
-            className="user-login"
+            className="user-image"
             alt="user avatar"
             src={user.avatar_url}
             height="120"
           />
-
-          <Link className="profile" key="profile" to={`/profile`}>
-            <button>View my profile</button>
-          </Link>
+          <div className="login-text-container">
+            <h3>
+              Welcome <br />
+              {user.username}
+            </h3>
+            <Link key="profile" to={`/profile`}>
+              <button>View my profile</button>
+            </Link>
+          </div>
         </div>
       )}
     </>

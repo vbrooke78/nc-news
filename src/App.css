@@ -1,3 +1,5 @@
+/*----------Narrow view----------*/
+
 .App {
   text-align: center;
 }
@@ -64,8 +66,21 @@ ul {
   padding: 0px 5px;
 }
 
+.article-card-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.article-card-buttons button {
+  margin: 2px;
+  padding: 4px;
+}
+
 .dropdown {
   font-size: large;
+  width: 110px;
 }
 
 .Header {
@@ -83,12 +98,23 @@ ul {
 }
 
 .input-label {
+  justify-content: center;
   margin: 10px;
+  margin-left: 50px;
   font-size: large;
+  align-items: center;
+  display: flex;
 }
 
 .links {
-  margin: 1em;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+.links:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .listItems {
@@ -97,8 +123,34 @@ ul {
   margin: 1em;
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: login;
+  justify-content: center;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form-container label {
+  margin-top: 10px;
+}
+
+.login-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .navBar {
+  display: flex;
+  justify-content: center;
   background-color: #bebabf;
+  height: 40px;
 }
 
 .post-comment_button {
@@ -109,6 +161,23 @@ ul {
   text-decoration: none;
   border-radius: 25px;
   margin: 4px 2px;
+}
+
+.orderby-container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.sortby-container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.user-image {
+  max-width: 30%;
+  align-self: center;
 }
 
 .username-label {
@@ -128,6 +197,10 @@ ul {
       'sidebar sort-by login'
       'sidebar main main';
     justify-content: center;
+  }
+
+  h1 {
+    font-size: 70px;
   }
 
   p {
@@ -151,9 +224,21 @@ ul {
     justify-content: center;
   }
 
+  .error-container {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error-container button {
+    max-width: 10%;
+    align-self: center;
+  }
+
   .individual-article {
     grid-area: main;
     max-width: 1000px;
+    align-self: center;
   }
 
   .input-label {
@@ -163,6 +248,17 @@ ul {
     margin-left: 50px;
   }
 
+  .links {
+    padding: 20px 15px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .links:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
   .listItems {
     border: 1px solid black;
     padding: 0.5em 1.5em;
@@ -170,38 +266,73 @@ ul {
     width: 25%;
   }
 
-  .navBar {
-    grid-area: sidebar;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .user-image {
-    grid-area: login;
-  }
-
   .login-container {
     display: flex;
+    flex-direction: row;
     grid-area: login;
     align-items: center;
     justify-content: flex-end;
     margin-right: 5em;
   }
-  .user-login {
+
+  .login-form-container {
     display: flex;
-    grid-area: login;
-    align-items: flex-end;
-    justify-content: center;
     flex-direction: column;
-    margin-right: 50px;
+    align-items: center;
   }
 
-  .user-profile {
+  .login-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navBar {
+    grid-area: sidebar;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 100%;
+  }
+
+  .post-article-body {
+    margin: 10px 30px;
+  }
+
+  .post-article-container {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-article-container button {
+    max-width: 10%;
+    margin-left: 30px;
+    /* align-self: center; */
+  }
+
+  .post-article-form {
     display: flex;
     grid-area: main;
-    align-items: center;
+    flex-wrap: wrap;
     flex-direction: column;
+  }
+
+  .post-article-heading {
+    text-align: left;
+    margin-left: 30px;
+  }
+
+  .post-article-title {
+    display: flex;
+    /* align-items: center; */
+    margin: 10px 30px;
+  }
+
+  .post-article-topic {
+    display: flex;
+    margin: 15px;
   }
 
   .profile-container {
@@ -213,10 +344,12 @@ ul {
     line-height: 1.8;
     width: 40%;
   }
+
   .profile-container img {
     padding: 5px;
     height: 200px;
   }
+
   .profile-container dl {
     flex-grow: 2;
     text-align: center;
@@ -227,7 +360,14 @@ ul {
     border-radius: 5px;
   }
 
-  .post-article-container {
+  .user-image {
+    grid-area: login;
+  }
+
+  .user-profile {
+    display: flex;
     grid-area: main;
+    align-items: center;
+    flex-direction: column;
   }
 }

@@ -13,16 +13,17 @@ export const ArticleCard = ({ article, articles, setArticles }) => {
       <p>Topic: {article.topic}</p>
       <p>Votes: {article.votes}</p>
       <p>Comments: {article.comment_count}</p>
-      <Link to={`/articles/${article.article_id}`}>
-        <button>Read more</button>
-      </Link>
-      {article.author === user.username ? (
-        <DeleteArticle
-          articles={articles}
-          setArticles={setArticles}
-          article_id={article.article_id}
-        />
-      ) : null}
+      <div className="article-card-buttons">
+        <Link to={`/articles/${article.article_id}`}>
+          <button>Read more</button>
+        </Link>
+        {article.author === user.username ? (
+          <DeleteArticle
+            setArticles={setArticles}
+            article_id={article.article_id}
+          />
+        ) : null}
+      </div>
     </li>
   );
 };
