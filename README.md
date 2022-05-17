@@ -62,7 +62,7 @@ To run the development build
 npm start
 ```
 
-# MINIMUN REQUIREMENTS
+# MINIMUM REQUIREMENTS
 
 - Nodejs v16.13.0
 Note: Earlier versions may work but have not been tested
