@@ -6,6 +6,7 @@ import ErrorPage from './ErrorPage';
 import OrderArticles from './OrderArticles';
 import SortArticles from './SortArticles';
 import { UserContext } from '../contexts/Users';
+import UserTheme from './UserTheme';
 
 const MyArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -38,6 +39,7 @@ const MyArticles = () => {
         <h2 className="isLoading">Loading articles...</h2>
       ) : (
         <>
+          <UserTheme />
           <section className="input-label">
             <SortArticles setSortBy={setSortBy} />
             <OrderArticles setOrderBy={setOrderBy} />

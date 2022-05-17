@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getArticle } from '../utils/api';
 import ErrorPage from './ErrorPage';
 import IndividualArticleCard from './IndividualArticleCard';
+import UserTheme from './UserTheme';
 
 const IndividualArticle = () => {
   const [article, setArticle] = useState(null);
@@ -20,7 +21,12 @@ const IndividualArticle = () => {
   if (error) return <ErrorPage error={error} />;
   if (!article) return null;
 
-  return <IndividualArticleCard article={article} />;
+  return (
+    <>
+      <UserTheme />
+      <IndividualArticleCard article={article} />;
+    </>
+  );
 };
 
 export default IndividualArticle;
