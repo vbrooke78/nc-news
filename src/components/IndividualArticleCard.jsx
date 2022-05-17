@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ViewComments from './ViewComments';
-import { updateVotes } from '../utils/api';
+import { updateArticleVotes } from '../utils/api';
 // import PostComment from './PostComment';
 
 const IndividualArticleCard = ({ article }) => {
@@ -18,7 +18,7 @@ const IndividualArticleCard = ({ article }) => {
 
   const handleUpClick = () => {
     setVotes((currVotes) => currVotes + 1);
-    updateVotes(article_id, 1).catch(() => {
+    updateArticleVotes(article_id, 1).catch(() => {
       setVotes((currVotes) => currVotes - 1);
       setErr('Sorry your vote failed, please try again');
     });
@@ -26,7 +26,7 @@ const IndividualArticleCard = ({ article }) => {
 
   const handleDownClick = () => {
     setVotes((currVotes) => currVotes - 1);
-    updateVotes(article_id, -1).catch(() => {
+    updateArticleVotes(article_id, -1).catch(() => {
       setVotes((currVotes) => currVotes + 1);
       setErr('Sorry your vote failed, please try again');
     });
