@@ -26,6 +26,16 @@ export const getArticle = (article_id) => {
   });
 };
 
+export const updateArticleVotes = (article_id, inc_votes) => {
+  return vbNewsApi
+    .patch(`/articles/${article_id}`, {
+      inc_votes,
+    })
+    .then(({ data }) => {
+      return data.updatedArticle;
+    });
+};
+
 export const postArticle = (newArticle) => {
   return vbNewsApi.post('./articles', newArticle).then(({ data }) => {
     return data.newArticle;
@@ -52,6 +62,16 @@ export const getComments = (article_id) => {
   });
 };
 
+export const updateCommentVotes = (comment_id, inc_votes) => {
+  return vbNewsApi
+    .patch(`/articles/${comment_id}`, {
+      inc_votes,
+    })
+    .then(({ data }) => {
+      return data.updatedComment;
+    });
+};
+
 export const postComment = (article_id, username, comment) => {
   return vbNewsApi
     .post(`/articles/${article_id}/comments`, {
@@ -67,17 +87,7 @@ export const deleteComment = (comment_id) => {
   return vbNewsApi.delete(`/comments/${comment_id}`);
 };
 
-/*----------votes----------*/
-
-export const updateVotes = (article_id, inc_votes) => {
-  return vbNewsApi
-    .patch(`/articles/${article_id}`, {
-      inc_votes,
-    })
-    .then(({ data }) => {
-      return data.updatedArticle;
-    });
-};
+/*----------users----------*/
 
 export const getUser = (username) => {
   return vbNewsApi.get(`/users/${username}`).then(({ data }) => {

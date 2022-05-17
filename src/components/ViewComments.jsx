@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getComments } from '../utils/api';
-import DeleteComments from './DeleteComments';
 import PostComment from './PostComment';
 import { useContext } from 'react';
 import { UserContext } from '../contexts/Users';
 import ErrorPage from './ErrorPage';
+import CommentCard from './CommentCard';
 
 const ViewComments = () => {
   const { user } = useContext(UserContext);
@@ -27,7 +27,7 @@ const ViewComments = () => {
 
   if (error) return <ErrorPage error={error} />;
   if (isLoading) return <p>Loading...</p>;
-  // if (comments.length === 0) return <p>Be the first to comment!</p>;
+
   return (
     <>
       {Object.keys(user).length > 0 ? (
@@ -42,23 +42,11 @@ const ViewComments = () => {
       <ul>
         {comments.map((comment) => {
           return (
-            <li key={comment.comment_id}>
-              <p>{comment.author}</p>
-              <p>{comment.body}</p>
-              <p>
-                <button>👍</button>
-                Votes: {comment.votes}
-                <button>👎</button>
-              </p>
-
-              {comment.author === user.username ? (
-                <DeleteComments
-                  comments={comments}
-                  setComments={setComments}
-                  comment_id={comment.comment_id}
-                />
-              ) : null}
-            </li>
+            <CommentCard
+              comment={comment}
+              comments={comments}
+              setComments={setComments}
+            />
           );
         })}
       </ul>
