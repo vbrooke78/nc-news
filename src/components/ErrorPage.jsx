@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 const ErrorPage = ({ error: { response } }) => {
   let navigate = useNavigate();
 
-  console.log(response);
   return (
     <>
       {response.status ? (

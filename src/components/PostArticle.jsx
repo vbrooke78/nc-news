@@ -9,7 +9,6 @@ import UserTheme from './UserTheme';
 const PostArticle = () => {
   const { user, setUser } = useContext(UserContext);
   let navigate = useNavigate();
-  const [path, setPath] = useState('');
   const [error, setError] = useState('');
   const [topics, setTopics] = useState([]);
   const [article, setArticle] = useState({

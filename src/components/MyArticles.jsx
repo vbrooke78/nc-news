@@ -29,7 +29,7 @@ const MyArticles = () => {
       .catch((err) => {
         setError(err);
       });
-  }, [topic, setArticles, sortBy, orderBy]);
+  }, [topic, setArticles, sortBy, orderBy, user]);
 
   if (error) return <ErrorPage error={error} />;
 
