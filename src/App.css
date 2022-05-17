@@ -170,6 +170,11 @@ ul {
   flex-wrap: wrap;
 }
 
+.user-image {
+  max-width: 30%;
+  align-self: center;
+}
+
 .username-label {
   align-items: flex-start;
   display: flex;

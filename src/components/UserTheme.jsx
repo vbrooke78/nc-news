@@ -45,7 +45,12 @@ const UserTheme = () => {
         </div>
       ) : (
         <div className="login-container">
-          <img alt="user avatar" src={user.avatar_url} height="120" />
+          <img
+            className="user-image"
+            alt="user avatar"
+            src={user.avatar_url}
+            height="120"
+          />
           <div className="login-text-container">
             <h3>
               Welcome <br />
