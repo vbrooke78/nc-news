@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import ViewComments from './ViewComments';
 import { updateArticleVotes } from '../utils/api';
-// import PostComment from './PostComment';
 
 const IndividualArticleCard = ({ article }) => {
   const [votes, setVotes] = useState(article.votes);

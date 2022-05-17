@@ -225,7 +225,7 @@ ul {
   }
 
   .error-container {
-    grid-area: main;
+    grid-area: login;
     display: flex;
     flex-direction: column;
   }
