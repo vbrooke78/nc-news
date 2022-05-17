@@ -18,7 +18,6 @@ export const ArticleCard = ({ article, articles, setArticles }) => {
       </Link>
       {article.author === user.username ? (
         <DeleteArticle
-          articles={articles}
           setArticles={setArticles}
           article_id={article.article_id}
         />
