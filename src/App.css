@@ -87,8 +87,8 @@ ul {
   grid-area: top;
   border: 2px solid #65a68e;
   background-color: #65a68e;
-  padding: 10px;
-  margin: 0.65em;
+  padding: 15px;
+  margin: 0;
 }
 
 .individual-article {
@@ -123,6 +123,12 @@ ul {
   margin: 1em;
 }
 
+.login-button {
+  width: 5em;
+  margin-top: 1em;
+  justify-self: center;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -149,7 +155,7 @@ ul {
 .navBar {
   display: flex;
   justify-content: center;
-  background-color: #bebabf;
+  background-color: #c6eddf;
   height: 40px;
 }
 
@@ -161,6 +167,20 @@ ul {
   text-decoration: none;
   border-radius: 25px;
   margin: 4px 2px;
+}
+
+.profile-login-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
+
+.profile-login-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .orderby-container {
@@ -225,7 +245,7 @@ ul {
   }
 
   .error-container {
-    grid-area: login;
+    grid-area: main;
     display: flex;
     flex-direction: column;
   }
@@ -237,15 +257,18 @@ ul {
 
   .individual-article {
     grid-area: main;
-    max-width: 1000px;
-    align-self: center;
+    max-width: 80%;
+    justify-self: center;
+    /* align-self: center; */
   }
 
   .input-label {
     grid-area: sort-by;
     align-items: center;
+    justify-content: flex-start;
     display: flex;
-    margin-left: 50px;
+    margin-top: 2em;
+    margin-left: 2em;
   }
 
   .links {
@@ -266,22 +289,24 @@ ul {
     width: 25%;
   }
 
+  .login-button {
+    grid-area: login;
+    width: 5em;
+    margin-top: 2em;
+    margin-right: 5em;
+    justify-self: right;
+  }
+
   .login-container {
     display: flex;
     flex-direction: row;
-    grid-area: login;
+    grid-area: main;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     margin-right: 5em;
   }
 
   .login-form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .login-text-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -292,7 +317,6 @@ ul {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin-top: 20px;
     height: 100%;
   }
 
@@ -358,6 +382,21 @@ ul {
     font-size: 1.5rem;
     color: #000;
     border-radius: 5px;
+  }
+
+  .profile-login-container {
+    display: flex;
+    /* flex-direction: row; */
+    grid-area: login;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 3rem;
+  }
+
+  .profile-login-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .user-image {

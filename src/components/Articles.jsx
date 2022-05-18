@@ -5,7 +5,7 @@ import { ArticleCard } from './ArticleCard';
 import ErrorPage from './ErrorPage';
 import OrderArticles from './OrderArticles';
 import SortArticles from './SortArticles';
-import UserTheme from './UserTheme';
+import UserProfile from './UserProfile';
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -31,11 +31,11 @@ const Articles = () => {
 
   return (
     <>
+      <UserProfile />
       {isLoading ? (
         <h2 className="isLoading">Loading articles...</h2>
       ) : (
         <>
-          <UserTheme />
           <section className="input-label">
             <SortArticles setSortBy={setSortBy} />
             <OrderArticles setOrderBy={setOrderBy} />

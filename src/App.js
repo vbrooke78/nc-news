@@ -9,6 +9,7 @@ import ErrorPage from './components/ErrorPage';
 import Profile from './components/Profile';
 import MyArticles from './components/MyArticles';
 import PostArticle from './components/PostArticle';
+import UserLogin from './components/UserLogin';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/my_articles" element={<MyArticles />} />
           <Route path="/post_article" element={<PostArticle />} />
+          <Route path="/login" element={<UserLogin />} />
         </Routes>
       </div>
     </UserProvider>
