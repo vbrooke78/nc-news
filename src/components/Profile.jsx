@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/Users';
+import UserLogin from './UserLogin';
 
 const Profile = () => {
   const { user, setUser } = useContext(UserContext);
@@ -12,6 +13,7 @@ const Profile = () => {
     navigate('/');
   };
 
+  if (Object.keys(user).length === 0) return <UserLogin />;
   return (
     <div className="user-profile">
       <h1>{user.name}'s Profile</h1>

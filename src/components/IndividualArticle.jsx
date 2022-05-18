@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getArticle } from '../utils/api';
 import ErrorPage from './ErrorPage';
 import IndividualArticleCard from './IndividualArticleCard';
-import UserTheme from './UserTheme';
+import UserProfile from './UserProfile';
 
 const IndividualArticle = () => {
   const [article, setArticle] = useState(null);
@@ -23,7 +23,7 @@ const IndividualArticle = () => {
 
   return (
     <>
-      <UserTheme />
+      <UserProfile />
       <IndividualArticleCard article={article} />;
     </>
   );

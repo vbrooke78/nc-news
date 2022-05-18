@@ -4,7 +4,6 @@ import { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/Users';
 import { getTopics, postArticle } from '../utils/api';
 import { generatePath, useNavigate } from 'react-router-dom';
-import UserTheme from './UserTheme';
 
 const PostArticle = () => {
   const { user, setUser } = useContext(UserContext);
@@ -42,7 +41,6 @@ const PostArticle = () => {
 
   return (
     <>
-      <UserTheme />
       <div className="post-article-container">
         <h2 className="post-article-heading">
           Post a new article as {user.username}
