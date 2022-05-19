@@ -13,7 +13,7 @@ const PostArticle = () => {
   const [article, setArticle] = useState({
     title: '',
     body: '',
-    topic: '',
+    topic: 'coding',
   });
 
   useEffect(() => {
