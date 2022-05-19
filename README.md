@@ -8,11 +8,18 @@ The app has been styled with CSS using a mobile-first approach.
 
 A link to my backend project can be found here https://github.com/vbrooke78/be-nc-news
 
-
 # HOSTED VERSION
 
 The app is hosted on Netlify at https://vbnews.netlify.app/
 
+You can use any of the following login details to log in to the app:
+
+- jessjelly
+- grumpy19
+- tickle122
+- happyamy2016
+- cooljmessy
+- weegembump
 
 # FEATURES
 
@@ -48,16 +55,21 @@ In addition I used:
 # INSTRUCTIONS
 
 Fork this repo.
-In your terminal 
+In your terminal
+
 ```sh
 git clone https://github.com/vbrooke78/nc-news.git
 cd nc-news
 ```
+
 To install dependencies
+
 ```sh
 npm install
 ```
+
 To run the development build
+
 ```sh
 npm start
 ```
@@ -67,6 +79,3 @@ npm start
 - Nodejs v16.13.0
 
 Note: Earlier versions may work but have not been tested
-
-
-
