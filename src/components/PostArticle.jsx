@@ -49,11 +49,11 @@ const PostArticle = () => {
           <div className="post-article-topic">
             <label htmlFor="topic">Topic:</label>
             <select
+              value={topics[0].slug}
               onChange={(e) =>
                 setArticle({ ...article, topic: e.target.value })
               }
             >
-              <option>---select---</option>
               {topics.map((topic) => (
                 <option value={topic.slug} key={topic.slug}>
                   {topic.slug}
