@@ -10,7 +10,6 @@ const PostArticle = () => {
   let navigate = useNavigate();
   const [error, setError] = useState('');
   const [topics, setTopics] = useState([]);
-  // const [selectedTopic, setSelectedTopic] = useState('');
   const [article, setArticle] = useState({
     title: '',
     body: '',
