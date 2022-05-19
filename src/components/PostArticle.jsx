@@ -49,7 +49,7 @@ const PostArticle = () => {
           <div className="post-article-topic">
             <label htmlFor="topic">Topic:</label>
             <select
-              value={topics[0].slug}
+              value={article.topic}
               onChange={(e) =>
                 setArticle({ ...article, topic: e.target.value })
               }
